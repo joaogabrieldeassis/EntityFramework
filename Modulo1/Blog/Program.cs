@@ -1,6 +1,7 @@
 ﻿using System;
 using Blog.DataContext;
 using Blog.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blog // Note: actual namespace depends on the project name.
 {
@@ -10,8 +11,8 @@ namespace Blog // Note: actual namespace depends on the project name.
         {
             using (var dbset = new BlogDataContext())
             {
-                //Create 
-                // var tag = new Tag { Name = "Primeiro name do Entity", Slug = "Entity" };
+                // // Create 
+                // var tag = new Tag { Name = "João Arquiteto", Slug = "Junior" };
                 // dbset.Tags.Add(tag);
                 // dbset.SaveChanges();
 
@@ -28,11 +29,21 @@ namespace Blog // Note: actual namespace depends on the project name.
                 // dbset.SaveChanges();
 
                 // !! Sempre fazer o ToList no final da minha Query
-                var list = dbset.Tags.Where(x => x.Name.Contains("Entity")).ToList();
-                foreach (var item in list)
-                {
-                    Console.WriteLine(item.Name);
-                }
+                // var list = dbset.Tags.Where(x => x.Name.Contains("Entity")).ToList();
+                // foreach (var item in list)
+                // {
+                //     Console.WriteLine(item.Name);
+                // }
+
+                // var tag = dbset.Tags.FirstOrDefault(x => x.Id == 1);
+                // tag.Name = "Ponto Entity";
+                // tag.Slug = "Entity";
+                // dbset.Update(tag);
+                // dbset.SaveChanges();
+
+                //FirstOrderDefault
+                var tag = dbset.Tags.AsNoTracking().FirstOrDefault(x => x.Id == 3);
+                Console.WriteLine(tag.Name);
             }
 
 
