@@ -14,12 +14,6 @@ namespace Blog.DataContext.Mapings
             .ValueGeneratedOnAdd()
             .UseIdentityColumn();
 
-            // public string Name { get; set; }
-            // public string Email { get; set; }
-            // public string PassWordHash { get; set; }
-            // public string Bio { get; set; }
-            // public string Image { get; set; }
-            // public string Slug { get; set; }
 
             //Name
             builder.Property(x => x.Name)
@@ -61,6 +55,8 @@ namespace Blog.DataContext.Mapings
             .HasColumnName("Slug")
             .HasColumnType("VARCHAR")
             .HasMaxLength(80);
+            builder.HasIndex(x => x.Slug, "IX_User_Slug")
+           .IsUnique();
         }
     }
 }
