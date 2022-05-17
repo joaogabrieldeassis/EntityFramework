@@ -1,3 +1,4 @@
+using Blog.DataContext.Mapings;
 using Blog.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,14 +9,17 @@ namespace Blog.DataContext
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
-        //  public DbSet<PostTag> PostTags { get; set; }
         public DbSet<User> Users { get; set; }
-        // public DbSet<UserRole> UserRoles { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
           => options.UseSqlServer("Server=localhost,1433;Database=BlogEntity;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;");
-
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new MapinCategory());
+            modelBuilder.ApplyConfiguration(new MapingPost());
+            modelBuilder.ApplyConfiguration(new MapingUser());
+        }
 
     }
 }

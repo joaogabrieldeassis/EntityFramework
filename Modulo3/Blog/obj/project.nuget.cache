@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yYsWbqXuTG5A5v7goQeeyU0Dd2I2ukyGtQeao9yYmOVvOq5/Rr11yLMwCJ8qLNTKMNM7On+v4v38ULyEsrMhzA==",
+  "dgSpecHash": "dlRmtw9nkuTmQlc0ljJtHJ+jDDsuEvI+vWKTS5zb408CHdNOg1P5mOoyPxM+WCT/ntbCCwFWDXP8YzuqlBfWrg==",
   "success": true,
-  "projectFilePath": "C:\\EntityFramework\\modulo2\\blog\\Blog.csproj",
+  "projectFilePath": "C:\\EntityFramework\\modulo3\\blog\\Blog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

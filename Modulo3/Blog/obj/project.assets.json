@@ -1772,11 +1772,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\EntityFramework\\modulo2\\blog\\Blog.csproj",
+      "projectUniqueName": "C:\\EntityFramework\\modulo3\\blog\\Blog.csproj",
       "projectName": "Blog",
-      "projectPath": "C:\\EntityFramework\\modulo2\\blog\\Blog.csproj",
+      "projectPath": "C:\\EntityFramework\\modulo3\\blog\\Blog.csproj",
       "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-      "outputPath": "C:\\EntityFramework\\modulo2\\blog\\obj\\",
+      "outputPath": "C:\\EntityFramework\\modulo3\\blog\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",

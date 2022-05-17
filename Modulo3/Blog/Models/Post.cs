@@ -14,7 +14,7 @@ namespace Blog.Models
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
         public Category Category { get; set; }
-        public User User { get; set; }
+        public User Author { get; set; }
         public IList<Tag> Tags { get; set; }
 
     }
