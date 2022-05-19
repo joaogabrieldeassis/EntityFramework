@@ -58,6 +58,13 @@ namespace Blog.DataContext.Mapings
             builder.HasIndex(x => x.Slug, "IX_User_Slug")
            .IsUnique();
 
+            //gitHub
+            builder.Property(x => x.GitHub)
+            .IsRequired()
+            .HasColumnName("GitHub")
+            .HasColumnType("NVARCHAR")
+            .HasMaxLength(50);
+
             //Mapeamento muitos para muitos 
             builder.HasMany(x => x.Roles)
             .WithMany(x => x.Users)
