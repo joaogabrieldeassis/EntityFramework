@@ -73,9 +73,10 @@ namespace Blog.Migrations
 
                     b.Property<DateTime>("LastUpdateDate")
                         .ValueGeneratedOnAdd()
+                        .HasMaxLength(60)
                         .HasColumnType("SMALLDATETIME")
                         .HasColumnName("LastUpdateDate")
-                        .HasDefaultValueSql("GETDATE");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Slug")
                         .IsRequired()
@@ -252,14 +253,14 @@ namespace Blog.Migrations
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("Fk_PostTag_PostId");
+                        .HasConstraintName("Fk_PostRole_PostId");
 
                     b.HasOne("Blog.Models.Post", null)
                         .WithMany()
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_PostTag.TagId");
+                        .HasConstraintName("FK_PostTag_TagId");
                 });
 
             modelBuilder.Entity("UserRole", b =>

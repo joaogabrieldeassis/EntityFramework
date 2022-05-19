@@ -9,16 +9,18 @@ namespace Blog.DataContext.Mapings
         public void Configure(EntityTypeBuilder<Post> builder)
         {
             builder.ToTable("Post");
+
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
             .ValueGeneratedOnAdd()
             .UseIdentityColumn();
 
             builder.Property(x => x.LastUpdateDate)
-            .IsRequired()
-            .HasColumnName("LastUpdateDate")
-            .HasColumnType("SMALLDATETIME")
-            .HasDefaultValueSql("GETDATE");
+                 .IsRequired()
+                 .HasColumnName("LastUpdateDate")
+                 .HasColumnType("SMALLDATETIME")
+                 .HasMaxLength(60)
+                 .HasDefaultValueSql("GETDATE()");
 
             builder.HasIndex(x => x.Slug, "IX_Post_Slug")
             .IsUnique();
@@ -36,19 +38,19 @@ namespace Blog.DataContext.Mapings
            .OnDelete(DeleteBehavior.Cascade);
 
             //Indentificando o mapeamento muitos para muitos "Um post tem muitas tags e uma tag tem muitos posts"
-            builder.HasMany(j => j.Tags)
-            .WithMany(j => j.Posts)
+            builder.HasMany(x => x.Tags)
+            .WithMany(x => x.Posts)
             .UsingEntity<Dictionary<string, object>>(
             "PostTag", // Nome da tabela associativa
             post => post.HasOne<Tag>()
             .WithMany()
             .HasForeignKey("PostId") //Nome do campo da tabela associativa
-            .HasConstraintName("Fk_PostTag_PostId")
+            .HasConstraintName("Fk_PostRole_PostId")
             .OnDelete(DeleteBehavior.Cascade),
             tag => tag.HasOne<Post>()
             .WithMany()
             .HasForeignKey("TagId")
-            .HasConstraintName("FK_PostTag.TagId")
+            .HasConstraintName("FK_PostTag_TagId")
             .OnDelete(DeleteBehavior.Cascade)
 
             );
